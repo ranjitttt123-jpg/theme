@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Love Proposal - Ricky & Guguly</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      background: linear-gradient(to bottom, #ffdde1, #ee9ca7);
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    h1 {
+      margin-top: 20px;
+      color: darkred;
+      text-shadow: 2px 2px 5px pink;
+    }
+
+    .scene {
+      position: relative;
+      height: 70vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+    }
+
+    .boy, .girl {
+      font-size: 80px;
+      position: relative;
+      margin: 0 40px;
+      animation: float 2s infinite alternate ease-in-out;
+    }
+
+    @keyframes float {
+      from { transform: translateY(0); }
+      to { transform: translateY(-15px); }
+    }
+
+    .letter {
+      position: absolute;
+      bottom: 160px;
+      font-size: 40px;
+      opacity: 0;
+      animation: giveLetter 4s forwards;
+      animation-delay: 3s;
+    }
+
+    @keyframes giveLetter {
+      0% { opacity: 0; transform: translateX(0); }
+      50% { opacity: 1; transform: translateX(50px); }
+      100% { opacity: 1; transform: translateX(120px); }
+    }
+
+    #openBtn {
+      margin-top: 20px;
+      padding: 12px 24px;
+      background: crimson;
+      color: white;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      display: none;
+      box-shadow: 0 0 15px pink;
+    }
+
+    #openBtn:hover {
+      background: darkred;
+    }
+
+    /* Second page (letter) */
+    .letterPage {
+      display: none;
+      padding: 40px;
+      height: 100vh;
+      box-sizing: border-box;
+      background: #fff0f5;
+      border: 20px solid pink;
+      border-image: linear-gradient(45deg, red, pink, purple) 1;
+      position: relative;
+
+    }
+
+    .letterContent {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px pink;
+      position: relative;
+      font-size: 20px;
+      line-height: 1.6;
+    }
+
+    .letterContent::before {
+      content: "💐💐💐";
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 30px;
+    }
+
+    .letterContent::after {
+      content: "🎆🎇✨";
+      position: absolute;
+      bottom: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 30px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ricky Proposes Guguly ❤️</h1>
+
+  <!-- First Scene -->
+  <div class="scene" id="proposalScene">
+    <div class="boy">👦</div>
+    <div class="letter">💌</div>
+    <div class="girl">👩</div>
+  </div>
+
+  <button id="openBtn" onclick="openLetter()">Open  Letter 💌</button>
+
+  <!-- Second Page -->
+  <div class="letterPage" id="letterPage">
+    <div class="letterContent">
+      <h2>My Dearest Guguly, ❤️</h2>
+      <p>
+        From the moment I met you, my world has been brighter, warmer, and more beautiful.  
+        You are the reason behind my smile and the dream I never want to end.  
+      </p>
+      <p>
+        With this letter, I give you not just words but my heart, my soul, and all of me.  
+        Hackk, will you always be mine, as I am forever yours?  
+      </p>
+      <p style="text-align:right; font-weight:bold;">
+        Forever in love, <br> Ricky 💕
+      </p>
+    </div>
+  </div>
+
+  <script>
+    // Show button after letter animation
+    setTimeout(() => {
+      document.getElementById("openBtn").style.display = "inline-block";
+    }, 7000);
+
+    function openLetter() {
+      document.getElementById("proposalScene").style.display = "none";
+      document.getElementById("openBtn").style.display = "none";
+      document.querySelector("h1").style.display = "none";
+      document.getElementById("letterPage").style.display = "block";
+    }
+  </script>
+</body>
+</html>
